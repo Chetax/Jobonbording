@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { useState } from 'react';
-
+import { useState ,useEffect} from 'react';
+import JobListing from '../JobListing/Joblisting';
 import Grid from '@mui/material/Grid';
 import {  Container } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -9,6 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 const Location = [
+  "All",
   "Ahmedabad, Gujarat",
   "Ahmedabad, Indore",
   "Chennai, Hyderabad",
@@ -77,11 +78,14 @@ const contractual=[
   "All","Contractual","Intern","On-roll","QR Sales","Uncategorized"
 ]
 
+
 export default function BasicGrid() {
   const [locationtype, setlocationtype] = useState('');
   const [location, setlocation] = useState('');
-  const [Team, setTeam] = useState('');
+  const [Team, setTeam] = useState("All");
   const [Contractual, setContractual] = useState('');
+
+  useEffect(()=>console.log("Cash"),[locationtype,location,Team,Contractual]);
 
   const handlelocationtype = (event) => {
     setlocationtype(event.target.value);
@@ -97,6 +101,7 @@ export default function BasicGrid() {
   };
 
   return (
+    <>
     <Box sx={{bgcolor:"whitesmoke",pb:5}}>
     <Container >
       <Box sx={{  position: 'relative' }}>
@@ -139,11 +144,10 @@ export default function BasicGrid() {
                       label="Age"
                       onChange={handlelocation}
                     >
-                       <MenuItem value={"All"}>All</MenuItem>
-                      <MenuItem value={"On-Site"}>On-Site</MenuItem>
-                      <MenuItem value={"Hybrid"}>Hybrid</MenuItem>
-                      <MenuItem value={"Remote"}>Remote</MenuItem>
-                      
+                      {Location.map((loc)=>{
+                        return   <MenuItem value={loc}>{loc}</MenuItem>
+                      })}
+            
                     </Select>
                   </FormControl>
                 </Box>
@@ -199,6 +203,9 @@ export default function BasicGrid() {
       </Box>
     </Container>
     </Box>
+    <JobListing  props={[locationtype,location,Team,Contractual]}/>
+
+    </>
   );
 }
 /*

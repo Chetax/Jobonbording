@@ -1,6 +1,6 @@
 import Navbar from './Componet/Navbar/Navbar';
 import Header from './Componet/Header/Header';
-import JobListing from './Componet/JobListing/Joblisting';
+
 import './App.css';
 
 function App() {
@@ -8,7 +8,6 @@ function App() {
    <div>
   <Navbar/>
   <Header/>
-  <JobListing/>
 
 
     </div>
