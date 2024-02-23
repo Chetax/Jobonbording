@@ -58,28 +58,21 @@ const Location = [
   "Visakhapatnam, Andhra Pradesh",
   "Uncategorized",
 ];
-const team = [
-  "All",
-  "Insurance",
-  "Offline Merchants - QR",
-  "Business",
-  "CreditMate",
-  "Insurance",
-  "Lending",
-  "CreditMate",
-  "Insurance",
-  "Lending",
-  "Lending Collections",
-  "Offline Merchants - QR",
-  "Paytm First Games",
-  "Paytm Insider",
-  "Paytm Insider",
-  "Enabling",
-  "Paytm Insider",
-  "Public Relations",
-  "Finance",
-  "Paytm Insider"
-];
+const team = {
+  "All":[],
+  "ANALYTICS":[  "INSURANCE"," OFFLINE MERCHANTS - QR"],
+  "Business":["CREDITMATE","INSURANCE","LENDING","LENDING COLLECTIONS","OFFLINE MERCHANTS - QR",'PAYTM FIRST GAMES',"PAYTM INSIDER"],
+  "Design":["PAYTM INSIDER"],
+  "ENABLING":["PAYTM INSIDER ","PUBLIC RELATIONS"],
+  "Finance":["PAYTM INSIDER"],
+  "GROWTH":[ "PAYTM FIRST GAMES","PAYTM MONEY"],
+  "HR":["RECRUITMENT"],
+  "MARKETING":["PAYTM INSIDER"],
+  "OPERATIONS & SUPPORT":["OFFLINE MERCHANTS - QR"],
+  "PRODUCT":["APP PRODUCT","  CUSTOMER SERVICE (CS)","INSURANCE","LENDING","MERCHANT BUSINESS PRODUCT","OFFLINE MERCHANTS - QR","RECHARGES & UTILITIES"],
+  "SALES":["OFFLINE MERCHANTS - QR"],
+  "TECHNOLOGY":["RISK – TECH "]
+};
 const contractual=[
   "All","Contractual","Intern","On-roll","QR Sales","Uncategorized"
 ]
@@ -146,11 +139,11 @@ export default function BasicGrid() {
                       label="Age"
                       onChange={handlelocation}
                     >
-                      {Location.map((loc) => (
-                        <MenuItem key={loc} value={loc}>
-                          {loc}
-                        </MenuItem>
-                      ))}
+                       <MenuItem value={"All"}>All</MenuItem>
+                      <MenuItem value={"On-Site"}>On-Site</MenuItem>
+                      <MenuItem value={"Hybrid"}>Hybrid</MenuItem>
+                      <MenuItem value={"Remote"}>Remote</MenuItem>
+                      
                     </Select>
                   </FormControl>
                 </Box>
@@ -166,9 +159,11 @@ export default function BasicGrid() {
                       label="Age"
                       onChange={handleTeam}
                     >
-                      {team.map((team)=>{
-                        return <MenuItem key={team} value={team}>{team}</MenuItem>
-                      })}
+                                            
+                    {Object.entries(team).map(([key, values]) => (
+                       <MenuItem value={key}>{key} </MenuItem>
+      ))}
+                      
                       
                   
                     </Select>

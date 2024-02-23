@@ -4,8 +4,9 @@ import logo from './Paytm_logo.png';
 function Navbar() {
   return ( <>
 
-<Box sx={{ p:2,mb:1.5}}>
+<Box  sx={{ p:2,mb:1.5}}>
     <Container >
+      
       <Box sx={{ flexGrow: 1, position: 'relative' }}>
         <Grid container spacing={2}>
           <Grid item  xs={0} xl={2.0} lg={2.4} md={2.0}></Grid>
