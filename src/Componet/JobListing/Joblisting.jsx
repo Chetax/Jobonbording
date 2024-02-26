@@ -1,4 +1,5 @@
-import { Box, Button, Container, Grid, Typography } from '@mui/material';
+import { Box, Button, Container, Grid } from '@mui/material';
+import {Link } from 'react-router-dom'
 import Stack from '@mui/material/Stack';
 import { data} from '../Jobdata';
 function JobListing({props}) {
@@ -23,7 +24,9 @@ function JobListing({props}) {
                     <Box key={job.jobTitle} sx={{mb:5}} >       
                      <Stack  direction="row"   justifyContent="space-between"   alignItems="center"  spacing={2}>  
                     <span style={{fontSize:"25px"}}>{job.jobTitle}</span>
+                    <Link to={`/job-details/${job.jobTitle}`}>
                     <Button  variant="contained">Apply</Button>
+                    </Link>
                     </Stack>   
                     <Box sx={{mt:2}}> {job.locationType}-{job.location} </Box>   
                     </Box>
@@ -37,7 +40,7 @@ function JobListing({props}) {
                     <Box key={job.jobTitle} sx={{mb:5}} >       
                      <Stack  direction="row"   justifyContent="space-between"   alignItems="center"  spacing={2}>  
                     <span style={{fontSize:"25px"}}>{job.jobTitle}</span>
-                    <Button  variant="contained">Apply</Button>
+                   <Button  variant="contained" >Apply</Button>
                     </Stack>   
                     <Box sx={{mt:2}}> {job.locationType}-{job.location} </Box>   
                     </Box>

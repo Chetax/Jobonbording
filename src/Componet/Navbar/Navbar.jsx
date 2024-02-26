@@ -1,5 +1,6 @@
-import { Box, Button, Container, Grid, Tooltip } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from './Paytm_logo.png';
 function Navbar() {
   return ( <>
@@ -13,7 +14,7 @@ function Navbar() {
           <Grid item  xs={12} md={8} sm={12}>
           <Grid container spacing={2}>
               <Grid item xs={2.6}>
-                <img style={{height:"25px"}} src={logo} alt="" />
+             <Link to="/"><img style={{height:"25px"}} src={logo} alt="" /></Link>   
                 </Grid>
                 </Grid>
             </Grid>
