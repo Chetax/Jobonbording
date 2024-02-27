@@ -35,12 +35,15 @@ function JobListing({props}) {
           </> :<>{
                   Team===category ?
                   <>
-                  <h1>{category}</h1>
+ 
+ <h1>{category}</h1>
                   {data[category].map((job) => (
                     <Box key={job.jobTitle} sx={{mb:5}} >       
                      <Stack  direction="row"   justifyContent="space-between"   alignItems="center"  spacing={2}>  
                     <span style={{fontSize:"25px"}}>{job.jobTitle}</span>
-                   <Button  variant="contained" >Apply</Button>
+                    <Link to={`/job-details/${job.jobTitle}`}>
+                    <Button  variant="contained">Apply</Button>
+                    </Link>
                     </Stack>   
                     <Box sx={{mt:2}}> {job.locationType}-{job.location} </Box>   
                     </Box>
